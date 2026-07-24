@@ -27,10 +27,14 @@
         <strong id="tierValue">1</strong>
       </div>
       <div class="status-card">
-        <span>獲得コイン</span>
-        <strong id="coinsValue">0</strong>
+        <span id="progressLabel">獲得コイン</span>
+        <strong id="progressValue">0</strong>
       </div>
-      <div class="status-card accent">
+      <div class="status-card">
+        <span id="subLabel">補助情報</span>
+        <strong id="subValue">-</strong>
+      </div>
+      <div class="status-card accent wide">
         <span>最終報酬</span>
         <strong id="rewardValue">0</strong>
       </div>
@@ -38,12 +42,22 @@
 
     <section class="machine-select" id="machineSelect">
       <button class="machine-button white-machine" data-machine="white" type="button">
-        <strong>白台</strong>
-        <span>ATタイプ</span>
+        <strong>白台</strong><span>AT</span>
       </button>
       <button class="machine-button blue-machine" data-machine="blue" type="button">
-        <strong>青台</strong>
-        <span>Aタイプ</span>
+        <strong>青台</strong><span>A TYPE</span>
+      </button>
+      <button class="machine-button yellow-machine" data-machine="yellow" type="button">
+        <strong>黄台</strong><span>301</span>
+      </button>
+      <button class="machine-button red-machine" data-machine="red" type="button">
+        <strong>赤台</strong><span>501</span>
+      </button>
+      <button class="machine-button brown-machine" data-machine="brown" type="button">
+        <strong>茶台</strong><span>666</span>
+      </button>
+      <button class="machine-button purple-machine" data-machine="purple" type="button">
+        <strong>紫台</strong><span>BOSS RUSH</span>
       </button>
     </section>
 
@@ -56,7 +70,7 @@
 
       <div class="message-panel">
         <strong id="resultTitle">台を選択</strong>
-        <p id="resultMessage">白台または青台を選んでください。</p>
+        <p id="resultMessage">遊びたい台を選んでください。</p>
       </div>
 
       <button id="rollButton" class="roll-button" type="button" disabled>ROLL</button>

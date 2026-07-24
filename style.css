@@ -73,6 +73,11 @@ h1 {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  overflow: hidden;
+}
+
+.status-card.wide {
+  grid-column: 1 / -1;
 }
 
 .status-card span {
@@ -82,8 +87,9 @@ h1 {
 
 .status-card strong {
   margin-top: 2px;
-  font-size: clamp(24px, 8vw, 36px);
-  line-height: 1;
+  font-size: clamp(23px, 7vw, 35px);
+  line-height: 1.08;
+  overflow-wrap: anywhere;
 }
 
 .status-card.accent {
@@ -93,39 +99,38 @@ h1 {
 
 .machine-select {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
   margin-bottom: 12px;
 }
 
 .machine-button {
-  min-height: 78px;
+  min-height: 70px;
   border: 2px solid transparent;
-  border-radius: 15px;
+  border-radius: 14px;
   color: #11131a;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.28);
+  box-shadow: 0 5px 14px rgba(0, 0, 0, 0.28);
 }
 
 .machine-button strong {
-  font-size: 25px;
+  font-size: clamp(20px, 6vw, 25px);
 }
 
 .machine-button span {
-  font-size: 13px;
+  font-size: 11px;
+  font-weight: 700;
 }
 
-.white-machine {
-  background: linear-gradient(145deg, #ffffff, #cfd2db);
-}
-
-.blue-machine {
-  color: #f8fbff;
-  background: linear-gradient(145deg, #1684d6, #123d86);
-}
+.white-machine { background: linear-gradient(145deg, #ffffff, #cfd2db); }
+.blue-machine { color: #f8fbff; background: linear-gradient(145deg, #1684d6, #123d86); }
+.yellow-machine { background: linear-gradient(145deg, #ffe36a, #d89c13); }
+.red-machine { color: #fff; background: linear-gradient(145deg, #e94b52, #8d1725); }
+.brown-machine { color: #fff; background: linear-gradient(145deg, #9a633b, #4f2919); }
+.purple-machine { color: #fff; background: linear-gradient(145deg, #a35be2, #4d1a82); }
 
 .machine-button.selected {
   outline: 3px solid #f1c85b;
@@ -156,7 +161,7 @@ h1 {
   display: grid;
   place-items: center;
   font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  font-size: clamp(56px, 20vw, 110px);
+  font-size: clamp(54px, 19vw, 108px);
   font-weight: 900;
   box-shadow: inset 0 0 18px rgba(0, 0, 0, 0.28);
 }
@@ -167,7 +172,7 @@ h1 {
 }
 
 .message-panel {
-  min-height: 80px;
+  min-height: 86px;
   padding: 12px;
   margin-bottom: 12px;
   border-radius: 12px;
@@ -178,14 +183,8 @@ h1 {
   justify-content: center;
 }
 
-.message-panel strong {
-  font-size: 20px;
-}
-
-.message-panel p {
-  margin: 4px 0 0;
-  color: #c1c4d3;
-}
+.message-panel strong { font-size: 20px; }
+.message-panel p { margin: 4px 0 0; color: #c1c4d3; }
 
 .roll-button {
   width: 100%;
@@ -248,60 +247,28 @@ dialog {
   color: #fff;
 }
 
-dialog::backdrop {
-  background: rgba(0, 0, 0, 0.72);
-}
-
-dialog article {
-  padding: 16px;
-}
+dialog::backdrop { background: rgba(0, 0, 0, 0.72); }
+dialog article { padding: 16px; }
 
 .dialog-header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   gap: 12px;
+  position: sticky;
+  top: 0;
+  background: #181a24;
 }
 
-.dialog-header h2 {
-  margin: 0;
-}
+.dialog-header h2 { margin: 0; }
+.rule-content { color: #d9dbe5; line-height: 1.65; }
+.rule-content h3 { color: #fff; margin-bottom: 4px; }
+.rule-content p, .rule-content ul { margin-top: 4px; }
 
-.rule-content {
-  margin-top: 14px;
-  line-height: 1.7;
-  color: #d7d9e4;
-}
-
-.rule-content h3 {
-  margin-bottom: 4px;
-  color: #fff;
-}
-
-.rule-content ul {
-  padding-left: 1.3em;
-}
-
-@media (orientation: landscape) and (max-height: 560px) {
-  .app {
-    width: min(100%, 980px);
-    display: grid;
-    grid-template-columns: 0.8fr 1.2fr;
-    gap: 12px;
-  }
-
-  .topbar,
-  .status-grid,
-  .machine-select {
-    grid-column: 1;
-  }
-
-  .slot-panel {
-    grid-column: 2;
-    grid-row: 1 / span 3;
-  }
-
-  .reel {
-    font-size: clamp(52px, 12vw, 92px);
-  }
+@media (max-width: 420px) {
+  .app { padding: 10px; }
+  .machine-select { gap: 6px; }
+  .machine-button { min-height: 62px; }
+  .slot-panel { padding: 10px; }
+  .reels { gap: 7px; }
 }
