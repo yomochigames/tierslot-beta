@@ -422,7 +422,11 @@ function openRules() {
 }
 
 els.machineButtons.forEach(button => {
-  button.addEventListener("click", () => selectMachine(button.dataset.machine));
+  button.disabled = false;
+
+  button.addEventListener("click", () => {
+    selectMachine(button.dataset.machine);
+  });
 });
 
 els.rollButton.addEventListener("click", startRoll);
