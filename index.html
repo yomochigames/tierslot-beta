@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <meta name="theme-color" content="#12131a">
   <title>TierSlot β Web</title>
-<link rel="stylesheet" href="style.css?v=2">
+  <link rel="stylesheet" href="style.css?v=7">
 </head>
 <body>
   <main class="app">
@@ -19,11 +19,11 @@
 
     <section class="status-grid" aria-label="ゲーム状況">
       <div class="status-card">
-        <span>残りロール</span>
+        <span id="rollsLabel">残りロール</span>
         <strong id="rollsValue">60</strong>
       </div>
       <div class="status-card">
-        <span>Bonus Tier</span>
+        <span id="tierLabel">Bonus Tier</span>
         <strong id="tierValue">1</strong>
       </div>
       <div class="status-card">
@@ -35,30 +35,26 @@
         <strong id="subValue">-</strong>
       </div>
       <div class="status-card accent wide">
-        <span>最終報酬</span>
+        <span id="rewardLabel">最終報酬</span>
         <strong id="rewardValue">0</strong>
       </div>
     </section>
 
     <section class="machine-select" id="machineSelect">
-      <button class="machine-button white-machine" data-machine="white" type="button">
-        <strong>白台</strong><span>AT</span>
-      </button>
-      <button class="machine-button blue-machine" data-machine="blue" type="button">
-        <strong>青台</strong><span>A TYPE</span>
-      </button>
-      <button class="machine-button yellow-machine" data-machine="yellow" type="button">
-        <strong>黄台</strong><span>301</span>
-      </button>
-      <button class="machine-button red-machine" data-machine="red" type="button">
-        <strong>赤台</strong><span>501</span>
-      </button>
-      <button class="machine-button brown-machine" data-machine="brown" type="button">
-        <strong>茶台</strong><span>666</span>
-      </button>
-      <button class="machine-button purple-machine" data-machine="purple" type="button">
-        <strong>紫台</strong><span>BOSS RUSH</span>
-      </button>
+      <button class="machine-button white-machine" data-machine="white" type="button"><strong>白台</strong><span>AT</span></button>
+      <button class="machine-button blue-machine" data-machine="blue" type="button"><strong>青台</strong><span>A TYPE</span></button>
+      <button class="machine-button yellow-machine" data-machine="yellow" type="button"><strong>黄台</strong><span>301</span></button>
+      <button class="machine-button red-machine" data-machine="red" type="button"><strong>赤台</strong><span>501</span></button>
+      <button class="machine-button brown-machine" data-machine="brown" type="button"><strong>茶台</strong><span>666</span></button>
+      <button class="machine-button purple-machine" data-machine="purple" type="button"><strong>紫台</strong><span>BOSS RUSH</span></button>
+      <button class="machine-button mahjong-machine full-machine" data-machine="mahjong" type="button"><strong>魔界雀</strong><span>MAHJONG × SLOT</span></button>
+    </section>
+
+    <section class="mahjong-info hidden" id="mahjongInfo">
+      <div class="mahjong-line"><span>ゲーム</span><strong id="mahjongGameValue">1 / 5</strong></div>
+      <div class="mahjong-line"><span>ドラ</span><div id="doraList" class="tile-list"></div></div>
+      <div class="mahjong-line hand-line"><span>手牌</span><div id="handList" class="tile-list hand-list"></div></div>
+      <div class="mahjong-line"><span>ゲーム得点</span><strong id="mahjongScoreValue">0</strong></div>
     </section>
 
     <section class="slot-panel">
@@ -66,6 +62,19 @@
         <div id="reel0" class="reel">1</div>
         <div id="reel1" class="reel">1</div>
         <div id="reel2" class="reel">1</div>
+      </div>
+
+      <div id="tileChoicePanel" class="tile-choice-panel hidden">
+        <p>取得する牌を選択</p>
+        <div class="tile-choice-buttons">
+          <button class="tile-choice-button" data-index="0" type="button"></button>
+          <button class="tile-choice-button" data-index="1" type="button"></button>
+          <button class="tile-choice-button" data-index="2" type="button"></button>
+        </div>
+        <div id="ponActions" class="pon-actions hidden">
+          <button id="ponButton" class="pon-button" type="button">鳴く（3枚取得）</button>
+          <button id="skipPonButton" class="secondary-button" type="button">鳴かない</button>
+        </div>
       </div>
 
       <div class="message-panel">
@@ -98,6 +107,6 @@
     </article>
   </dialog>
 
-  <script src="game.js?v=2"></script>
+  <script src="game.js?v=7"></script>
 </body>
 </html>
