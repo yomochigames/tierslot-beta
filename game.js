@@ -346,12 +346,24 @@ function judgePurple(singleTotal, pairDamage, isTriple, isSequenceRole) {
     roleName = `シングル ×${state.singleMultiplier}`;
   }
 
-  state.bossHp -= damage;
-  if (state.bossHp <= 0) {
-    defeatBoss(damage, roleName);
-  } else {
-    setMessage(roleName, `${damage}ダメージ｜Boss HP ${formatNumber(state.bossHp)}`);
-  }
+if (damage > state.bossHp) {
+  setMessage(
+    "BURST",
+    `${damage}ダメージはBoss HPを超えるため無効`
+  );
+  return;
+}
+
+state.bossHp -= damage;
+
+if (state.bossHp === 0) {
+  defeatBoss(damage, roleName);
+} else {
+  setMessage(
+    roleName,
+    `${damage}ダメージ｜Boss HP ${formatNumber(state.bossHp)}`
+  );
+}
 }
 
 function defeatBoss(damage, roleName) {
