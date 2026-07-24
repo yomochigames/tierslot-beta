@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#12131a">
+  <title>TierSlot β Web</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <div>
+        <h1>TierSlot β</h1>
+        <p id="machineName">台を選択してください</p>
+      </div>
+      <button id="ruleButton" class="small-button" type="button">ルール</button>
+    </header>
+
+    <section class="status-grid" aria-label="ゲーム状況">
+      <div class="status-card">
+        <span>残りロール</span>
+        <strong id="rollsValue">60</strong>
+      </div>
+      <div class="status-card">
+        <span>Bonus Tier</span>
+        <strong id="tierValue">1</strong>
+      </div>
+      <div class="status-card">
+        <span>獲得コイン</span>
+        <strong id="coinsValue">0</strong>
+      </div>
+      <div class="status-card accent">
+        <span>最終報酬</span>
+        <strong id="rewardValue">0</strong>
+      </div>
+    </section>
+
+    <section class="machine-select" id="machineSelect">
+      <button class="machine-button white-machine" data-machine="white" type="button">
+        <strong>白台</strong>
+        <span>ATタイプ</span>
+      </button>
+      <button class="machine-button blue-machine" data-machine="blue" type="button">
+        <strong>青台</strong>
+        <span>Aタイプ</span>
+      </button>
+    </section>
+
+    <section class="slot-panel">
+      <div class="reels" aria-label="リール">
+        <div id="reel0" class="reel">1</div>
+        <div id="reel1" class="reel">1</div>
+        <div id="reel2" class="reel">1</div>
+      </div>
+
+      <div class="message-panel">
+        <strong id="resultTitle">台を選択</strong>
+        <p id="resultMessage">白台または青台を選んでください。</p>
+      </div>
+
+      <button id="rollButton" class="roll-button" type="button" disabled>ROLL</button>
+
+      <div class="stop-buttons">
+        <button class="stop-button" data-index="0" type="button" disabled>STOP 1</button>
+        <button class="stop-button" data-index="1" type="button" disabled>STOP 2</button>
+        <button class="stop-button" data-index="2" type="button" disabled>STOP 3</button>
+      </div>
+
+      <div class="sub-actions">
+        <button id="retireButton" class="secondary-button" type="button" disabled>リタイア</button>
+        <button id="restartButton" class="secondary-button" type="button" disabled>最初から</button>
+      </div>
+    </section>
+  </main>
+
+  <dialog id="ruleDialog">
+    <article>
+      <div class="dialog-header">
+        <h2 id="ruleTitle">ルール</h2>
+        <button id="closeRuleButton" class="small-button" type="button">閉じる</button>
+      </div>
+      <div id="ruleContent" class="rule-content"></div>
+    </article>
+  </dialog>
+
+  <script src="game.js"></script>
+</body>
+</html>
